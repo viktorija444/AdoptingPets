@@ -1,55 +1,78 @@
 package com.example.springudomljavanjezivotinja.model;
 
 
+import org.hibernate.validator.constraints.Length;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import java.util.Collection;
-import java.util.List;
+import java.util.Collections;
+
 
 @Entity
-@Table(name = "korisnik", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
-public class Korisnik {
+@Table(name = "korisnik")
+public class Korisnik implements UserDetails {
+    @SequenceGenerator(
+            name="users_sequence",
+            sequenceName = "users_sequence",
+            allocationSize = 1
+    )
+
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+    generator = "users_sequence")
     private Long id;
 
+    @NotNull(message = "Polje ime ne moze biti prazno")
     @Column(name = "ime")
     private String ime;
+
+    @NotNull(message = "Last Name cannot be empty")
     @Column(name = "prezime")
     private String prezime;
+
+    @NotNull(message = "Email cannot be empty")
+    @Email(message = "Please enter a valid email address")
+    @Column(name = "email", unique = true)
     private String email;
+
+    @Column(name = "brojTelefona", unique = true)
+    @Length(min = 10, message = "Password should be atleast 10 number long")
     private String brojTelefona;
-    private String lozinka;
-    private String potvrdaLozinke;
 
+    @NotNull(message = "Password cannot be empty")
+    @Length(min= 7, message = "Lozinka ne moze biti manja od 7 karaktera")
+    private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "users_roles",
-            joinColumns = @JoinColumn(
-                    name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "role_id", referencedColumnName = "id"))
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
+    @Column(name ="locked")
+    private Boolean locked = false;
 
+    @Column(name = "enabled")
+    private Boolean enabled = true;
 
-    private Collection<Role> roles;
-
-    public Korisnik() {
-
-    }
-    public Korisnik(String ime, String prezime, String email, String brojTelefona, String lozinka, String potvrdaLozinke, Collection<Role> roles) {
-        super();
-        this.ime = ime;
-        this.prezime = prezime;
-        this.email = email;
-        this.brojTelefona = brojTelefona;
-        this.lozinka = lozinka;
-        this.potvrdaLozinke = potvrdaLozinke;
-        this.roles = roles;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role.name());
+        return Collections.singletonList(authority);
     }
 
+    @Override
+    public String getPassword() {
+        return password;
+    }
 
+    @Override
+    public String getUsername() {
+        return email;
+    }
 
     public Long getId() {
         return id;
@@ -59,13 +82,14 @@ public class Korisnik {
         this.id = id;
     }
 
-    public Collection<Role> getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoles(Collection<Role> roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
+
 
     public String getIme() {
         return ime;
@@ -99,22 +123,32 @@ public class Korisnik {
         this.brojTelefona = brojTelefona;
     }
 
-    public String getLozinka() {
-        return lozinka;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setLozinka(String lozinka) {
-        this.lozinka = lozinka;
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
     }
 
-    public String getPotvrdaLozinke() {
-        return potvrdaLozinke;
+    @Override
+    public boolean isAccountNonLocked() {
+        return !locked;
     }
 
-    public void setPotvrdaLozinke(String potvrdaLozinke) {
-        this.potvrdaLozinke = potvrdaLozinke;
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
     }
+
+    @Override
+    public boolean isEnabled() {
+        return enabled;
+    }
+
 }
+
 
 
 

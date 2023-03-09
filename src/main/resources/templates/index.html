@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" xmlns:as="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        Udomljavajnje Zivotinja
+    </title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}"  />
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js" rel="stylesheet"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+<div class="top-bar">
+    <span><ion-icon name="call"></ion-icon> 111-222-333 </span>
+
+
+    <ul>
+
+        <li><a sec:authorize="isAuthenticated()"> <span sec:authentication="authorities"></span></a></li>
+        <li><a sec:authorize="isAuthenticated()"> <span sec:authentication="name"></span></a></li>
+        <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Odjavi se</a></li>
+        <li><a href="https://www.facebook.com/"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a href="https://www.instagram.com/"><ion-icon name="logo-instagram"></ion-icon></a></li>
+        <li><a href="https://www.twitter.com/"><ion-icon name="logo-twitter"></ion-icon></a></li>
+    </ul>
+</div>
+
+
+<section class="header">
+    <nav>
+
+
+        <img th:src="@{/images/141-1415512_mfc-cat-logo-contrast-animal-welfare-drawing.png}" class="logo" />
+         <a> UDOMLJAVANJE ZIVOTINJA </a>
+
+
+            <input type="checkbox" id="menu-bar">
+            <label for="menu-bar">Menu</label>
+
+        <div class="nav-links" id="navLinks">
+
+            <ul>
+                <li><a href="">Udomi</a>
+
+                    <ul>
+                        <li><a href="macke">Macke</a></li>
+                        <li><a href="">Psi</a></li>
+
+                    </ul>
+
+                </li>
+                <li><a href="">Udomljene zivotinje</a></li>
+                <li><a href="onama">O nama</a></li>
+                <li><a href="kontakt">Kontakt</a></li>
+                <div sec:authorize="hasRole('ROLE_ANONYMOUS')">
+                    <li><a href="prijava">Prijava</a></li>
+                <li><a href="registracija">Registracija</a></li>
+                </div>
+
+
+
+            </ul>
+
+
+
+        </div>
+        </nav>
+</section>
+
+ <div class="text-box">
+
+
+            <h1>DOBRODOŠLI NA SAJT ZA UDOMLJAVANJE ŽIVOTINJA!</h1>
+            <p> <br> </p>
+
+
+        </div>
+
+<hr>
+        <section class="facilities">
+
+
+            <h2>GALERIJA</h2>
+            <p1>Slike naših ljubimaca</p1>
+
+                   <div class="row">
+                    <div class="facilities-col">
+                        <a href="macke"><img th:src="@{/images/30181102_custom.jpg}" height="400" width="200"></a>
+                           <h3>Mačke</h3>
+                           <p>Klikom na sliku iznad ulazite u galeriju naših maca</p>
+
+                    </div>
+
+                        <div class="facilities-col">
+                            <img th:src="@{/images/v-748.jpg}" height="400" width="200">
+                            <h3>Psi</h3>
+                            <p>Klikom na sliku iznad ulazite u galeriju naših kuca</p>
+
+                </div>
+                 </div>
+            <hr size="2" NOSHADE>
+
+            </div>
+
+
+
+</section>
+<section class="cta">
+    <h1>
+        Ako želite da udomite ljubimca ili ako imate neko pitanje,<br> možete da posaljete poruku klikom na dugme <br>
+        ispod ili pozivom na broj koji je naveden u delu "Kontakt"
+    </h1>
+    <a href="/kontakt" class="hero-btn">Kontakt</a>
+</section>
+
+<hr>
+<section class="footer">
+    <h4>O nama</h4>
+    <p>Napravili smo ovaj sajt da bi na lakši način mogli da udomimo životinje koje su  <br>
+    bez doma trenutno, tu smo šta god da zatreba</p>
+    <p>Žiro račun na koji možete da uplatite novac za pomoć životinjama bez doma: 170-11111111111111-11  <ion-icon name="paw"></ion-icon></p>
+
+
+</section>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+a, a:hover{
+    text-decoration: none;
+    color: #ffffff;
+
+
+}
+
+.top-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 15px;
+    background: #135422;
+}
+
+.top-bar span{
+    color: #fff;
+}
+
+.top-bar ul{
+    list-style: none;
+    display: flex;
+}
+
+.top-bar li{
+    margin: 0 5px;
+}
+
+.top-bar a{
+    color: #ffffff;
+}
+
+.top-bar a:hover{
+    color: #1c0f0f;
+}
+
+
+.logo{
+    width: 50px;
+    cursor: pointer;
+    margin: 0 3px; /* udaljenost logo-a i nav-links od gornje margine */
+
+}
+
+
+nav{
+    display: flex;
+    padding: 0.7px 3%; /* koliko je logo udaljen od margine kao i navbar */
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav img{
+    width: 200px;
+}
+
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 5px 25px;
+    position: relative;
+}
+
+.nav-links ul li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.nav-links ul li a:hover{
+    color: #b35e5e;
+
+
+
+}
+
+.nav-links ul li ul{
+    position: absolute;
+    left: -39px;
+    width: 170px;
+    background: none;
+    text-align: start;
+    display: none;
+
+}
+
+.nav-links ul li ul li{
+    width: 34%;
+
+
+}
+
+.nav-links ul li ul li ul{
+    left: 200px;
+    top:0;
+}
+
+.nav-links ul li:hover > ul{
+    display: initial;
+    margin-top: 25px;
+}
+
+#menu-bar{
+    display: none;
+}
+
+label1{
+    font-size: 15px;
+    color: black;
+    cursor: pointer;
+    display: none;
+}
+
+.header {
+    min-height: 89vh;
+    width: 100%;
+    background-image: url(../../../static/images/macka-u-kuci.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-top: 8px;
+
+}
+
+@media (max-width: 700px) {
+
+    .nav-links ul {
+        padding: 20px;
+        text-align: center;
+    }
+
+    label1 {
+        display: initial;
+
+    }
+
+    .nav-links {
+        position: absolute;
+        margin-top: 226px;
+        background: #1c0f0f;
+        border-top: 1px solid rgba(0, 0, 0, .1);
+        display: none;
+        margin-right: 20px;
+    }
+
+    .nav-links ul li {
+        width: 100%;
+    }
+
+    .nav-links ul li ul {
+        position: relative;
+        width: 100%;
+    }
+
+    .nav-links ul li ul li {
+        background: #1c0f0f;
+    }
+
+    .nav-links ul li ul li {
+        width: 100%;
+        left: 0;
+    }
+
+    #menu-bar:checked ~ .nav-links {
+        display: initial;
+    }
+
+
+
+
+}
+
+/* novi projekat */
+
+/* Add padding to containers */
+.container {
+    padding: 65px; /* ovaj deo smanjuje container na velicinu na koju mi zelimo */
+}
+
+.container h1{
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+
+}
+
+.container p{
+    color: white;
+    text-align: center;
+
+}
+
+.container label{
+    color: white;
+}
+
+p{
+    color: #1c0f0f;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 98%; /*  duzina bele linije za ime, prezime, email....*/
+    padding: 15px; /* velicina belih kontejnera */
+    margin: 15px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ffffff;
+    outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 50px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+    background-color: #0446aa;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.registerbtn:hover {
+    opacity:1;
+}
+
+a1 {
+    color: #24337a;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+
+    .container h1{
+        font-size: 20px;
+    }
+
+    .container p{
+        font-size: 13px;
+    }
+
+    .label {
+        position: absolute;
+        margin-top: 226px;
+        background: #ffffff;
+        border-top: 1px solid rgb(255, 255, 255);
+        display: none;
+        margin-right: 20px;
+    }
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/macke.css}"  />
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js" rel="stylesheet"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<div class="top-bar">
+    <span><ion-icon name="call"></ion-icon> 111-222-333 </span>
+
+
+    <ul>
+        <li>
+        <form th:action="@{/macke}">
+        <input type="text"  name="keyword" id="keyword" size="25"  placeholder="Pretrazi" th:value="${keyword}" required />
+        </li>
+        <li>
+            &nbsp;
+            <button type="submit">
+                <a href="#"><ion-icon name="search"></ion-icon></a>
+            </button>
+            &nbsp;
+            <button type="reset">
+                <a href="#"><ion-icon name="refresh" id="btnClear" onclick="clearSearch()" /></a>
+            </button>
+        </form>
+        </li>
+        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+    </ul>
+</div>
+
+
+<section class="header">
+    <nav>
+
+
+        <img th:src="@{/images/141-1415512_mfc-cat-logo-contrast-animal-welfare-drawing.png}" class="logo" />
+        <!-- dodali smo ove "/../" -> da bismo mogli da ucitamo sliku u registraciji -->
+
+        <a> UDOMLJAVANJE ZIVOTINJA </a>
+
+
+        <input type="checkbox" id="menu-bar">
+        <label1 for="menu-bar">Menu</label1>
+
+        <div class="nav-links" id="navLinks">
+
+            <ul>
+
+                <li><a href="/"><ion-icon name="home"></ion-icon></a></li>
+                <li><a href="">Udomi</a>
+
+                    <ul>
+                        <li><a href="">Macke</a></li>
+                        <li><a href="">Psi</a></li>
+
+                    </ul>
+
+                </li>
+                <li><a href="">Udomljene zivotinje</a></li>
+                <li><a href="onama">O nama</a></li>
+                <li><a href="kontakt">Kontakt</a></li>
+                <li><a href="prijava">Prijava</a></li>
+                <li><a href="registracija">Registracija</a></li>
+
+
+
+
+            </ul>
+
+
+
+        </div>
+    </nav>
+
+    <div class="title">
+        <h1>Mačke</h1>
+
+        <p sec:authorize="hasRole('ROLE_ANONYMOUS')">Prijavite se kako biste mogli dodati ljubimca!</p>
+        <div sec:authorize="isAuthenticated()">
+        <a href="dodavanjezivotinje"  class="hero-btn">Dodaj novu zivotinju</a>
+        </div>
+    </div>
+
+
+        <div class="gallery">
+            <thead class="thead-dark">
+                    <tr>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr  th:each="zivotinje : ${zivotinje}">
+                        <th scope="col"><img alt="" th:src="*{'data:image/jpeg;base64,'+{zivotinje.image}}" style="width: 400px;height: 400px;"> </th>
+                       <div class="des">
+                        <td th:text="${zivotinje.imeLjubimca}"></td>
+                        <td th:text="${zivotinje.tipLjubimca}"></td>
+                        <td th:text="${zivotinje.opis}"></td>
+                        <td th:text="${zivotinje.datumRodjenja}"></td>
+                       </div>
+
+
+                        <td>
+                            <div sec:authorize="hasAuthority('ADMIN')">
+                            <a th:href = "@{macke/edit/{id}(id=${zivotinje.id})}"
+                               class = "btn btn-primary">Update</a>
+                            </div>
+                        </td>
+                            <td>
+                                <div sec:authorize="hasAuthority('ADMIN')">
+                                <a th:href="@{/macke/{id}(id=${zivotinje.id})}"
+                               class="btn btn-danger mt-4">delete</a>
+                                </div>
+                            </td>
+
+        </div>
+
+                    </tr>
+           </div>
+                    </tbody>
+                </table>
+
+</section>
+
+<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/macke}]]";
+    }
+</script>
+</body>
+</html>

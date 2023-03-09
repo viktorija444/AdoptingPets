@@ -1,11 +1,22 @@
 package com.example.springudomljavanjezivotinja.web.dto;
 
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 public class KorisnikRegistracijaDto {
 
+    @NotBlank(message = "Unesite vase ime")
     private String ime;
+    @NotBlank(message = "Unesite vase prezime")
     private String prezime;
+    @NotBlank(message = "Unesite broj telefona")
     private String brojTelefona;
+    @NotBlank(message = "Unesite email")
+    @Email(message = "Unesite pravilan email")
     private String email;
+    @Length(min = 6, message = "Lozinka treba da bude duza od 6 karaktera")
     private String lozinka;
     private String potvrdaLozinke;
 

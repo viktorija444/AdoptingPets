@@ -1,20 +1,21 @@
 package com.example.springudomljavanjezivotinja.servisi;
 
 import com.example.springudomljavanjezivotinja.model.Zivotinje;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Set;
+import java.util.List;
 
 public interface ZivotinjeServis {
 
+    List<Zivotinje> getZivotinje(String keyword);
 
-    Set<Zivotinje> getZivotinje();
+    void saveProductToDB(MultipartFile file, String imeLjubimca, String tipLjubimca
+            , String opis, String datumRodjenja);
 
-    Zivotinje findById(Long l);
+    Zivotinje get(Long id);
 
-    void deleteById(Long idToDelete);
+    Zivotinje updateZivotinje(Zivotinje zivotinje);
 
-
-
-
-
+    void deleteZivotinjuById(Long id);
 }
+

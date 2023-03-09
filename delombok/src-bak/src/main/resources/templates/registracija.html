@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/registracija.css}" />
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js" rel="stylesheet"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<div class="top-bar">
+    <span><ion-icon name="call"></ion-icon> 111-222-333 </span>
+
+
+    <ul>
+        <li><a href="#">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a></li>
+        <li><a href="#">
+            <ion-icon name="logo-instagram"></ion-icon>
+        </a></li>
+        <li><a href="#">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a></li>
+    </ul>
+</div>
+
+
+<section class="header">
+    <nav>
+
+
+        <img th:src="@{/images/141-1415512_mfc-cat-logo-contrast-animal-welfare-drawing.png}" class="logo" />
+        <!-- dodali smo ove "/../" -> da bismo mogli da ucitamo sliku u registraciji -->
+
+        <a> UDOMLJAVANJE ZIVOTINJA </a>
+
+        <input type="checkbox" id="menu-bar">
+        <label1 for="menu-bar">Menu</label1>
+
+        <div class="nav-links" id="navLinks">
+
+            <ul>
+                <li><a href="index"><ion-icon name="home"></ion-icon></a></li>
+                <li><a href="">Udomi</a>
+
+                    <ul>
+                        <li><a href="macke">Macke</a></li>
+                        <li><a href="">Psi</a></li>
+
+                    </ul>
+
+                </li>
+                <li><a href="">Udomljene zivotinje</a></li>
+                <li><a href="onama">O nama</a></li>
+                <li><a href="kontakt">Kontakt</a></li>
+                <li><a href="prijava">Prijava</a></li>
+                <li><a href="">Registracija</a></li>
+
+
+            </ul>
+
+
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <h1>Registracija</h1>
+        <p>Popunite ovaj obrazac kako biste napravili nalog</p>
+        <hr>
+
+        <form th:action="@{/registracija}" method="post" th:object="${korisnik}">
+            <div class="form-group">
+                <label class="control-label" for="ime">
+                    Ime
+                </label>
+                <input id="ime" class="form-control" type="text" th:field="*{ime}"
+                       required autofocus="autofocus"/>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="prezime">
+                    Prezime
+                </label>
+                <input id="prezime" class="form-control" type="text" th:field="*{prezime}"
+                       required autofocus="autofocus"/>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="email">
+                    Email
+                </label>
+                <input id="email" class="form-control" type="text" th:field="*{email}"
+                       required autofocus="autofocus"/>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="brojTelefona">
+                    Broj Telefona
+                </label>
+                <input id="brojTelefona" class="form-control" type="text" th:field="*{brojTelefona}"
+                       required autofocus="autofocus"/>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="lozinka">
+                    Lozinka
+                </label>
+                <input id="lozinka" class="form-control" type="password" th:field="*{lozinka}"
+                       required autofocus="autofocus"/>
+            </div>
+
+        </form>
+
+        <button type="submit" class="registerbtn">Registracija</button>
+    </div>
+</section>
+
+<div class="container signin">
+    <p1>Vec postoji tvoj nalog?
+        <a1 href="/" th:href="@{/login}">Prijava</a1>
+    </p1>
+</div>
+</body>
+</html>

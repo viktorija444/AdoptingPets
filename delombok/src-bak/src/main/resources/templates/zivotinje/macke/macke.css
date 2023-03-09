@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+a, a:hover{
+    text-decoration: none;
+    color: #ffffff;
+
+
+}
+
+.top-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 15px;
+    background: #135422;
+}
+
+.top-bar span{
+    color: #fff;
+}
+
+.top-bar ul{
+    list-style: none;
+    display: flex;
+}
+
+.top-bar li{
+    margin: 0 5px;
+}
+
+.top-bar a{
+    color: #ffffff;
+}
+
+.top-bar a:hover{
+    color: #1c0f0f;
+}
+
+
+.logo{
+    width: 50px;
+    cursor: pointer;
+    margin: 0 3px; /* udaljenost logo-a i nav-links od gornje margine */
+
+}
+
+
+nav{
+    display: flex;
+    padding: 0.7px 3%; /* koliko je logo udaljen od margine kao i navbar */
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav img{
+    width: 200px;
+}
+
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 5px 25px;
+    position: relative;
+}
+
+.nav-links ul li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.nav-links ul li a:hover{
+    color: #b35e5e;
+
+
+
+}
+
+.nav-links ul li ul{
+    position: absolute;
+    left: -39px;
+    width: 170px;
+    background: none;
+    text-align: start;
+    display: none;
+
+}
+
+.nav-links ul li ul li{
+    width: 34%;
+
+
+}
+
+.nav-links ul li ul li ul{
+    left: 200px;
+    top:0;
+}
+
+.nav-links ul li:hover > ul{
+    display: initial;
+    margin-top: 25px;
+}
+
+#menu-bar{
+    display: none;
+}
+
+label1{
+    font-size: 15px;
+    color: black;
+    cursor: pointer;
+    display: none;
+}
+
+.header {
+    min-height: 89vh;
+    width: 100%;
+    background-color: #b35e5e;
+    background-size: cover;
+    background-position: center;
+    margin-top: 8px;
+
+}
+
+@media (max-width: 700px) {
+
+    .nav-links ul {
+        padding: 20px;
+        text-align: center;
+    }
+
+    label1 {
+        display: initial;
+
+    }
+
+    .nav-links {
+        position: absolute;
+        margin-top: 226px;
+        background: #1c0f0f;
+        border-top: 1px solid rgba(0, 0, 0, .1);
+        display: none;
+        margin-right: 20px;
+    }
+
+    .nav-links ul li {
+        width: 100%;
+    }
+
+    .nav-links ul li ul {
+        position: relative;
+        width: 100%;
+    }
+
+    .nav-links ul li ul li {
+        background: #1c0f0f;
+    }
+
+    .nav-links ul li ul li {
+        width: 100%;
+        left: 0;
+    }
+
+    #menu-bar:checked ~ .nav-links {
+        display: initial;
+    }
+
+}
+
+/* macke projekat */
+
+section{
+    width: 80%;
+    margin: 80px auto;
+}
+
+.title{
+    text-align: center;
+    font-size: 4vmin;
+    color: white;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    margin-left: 86px;
+
+}
+
+.row .col{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+img{
+    width: 160%;
+}
+
+.container{
+    width: 90%;
+    padding: 20px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: row;
+}
+
+
+

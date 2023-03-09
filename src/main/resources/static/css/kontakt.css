@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+
+a, a:hover{
+    text-decoration: none;
+    color: #ffffff;
+
+
+}
+
+.top-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 15px;
+    background: #135422;
+}
+
+.top-bar span{
+    color: #fff;
+}
+
+.top-bar ul{
+    list-style: none;
+    display: flex;
+}
+
+.top-bar li{
+    margin: 0 5px;
+}
+
+.top-bar a{
+    color: #ffffff;
+}
+
+.top-bar a:hover{
+    color: #1c0f0f;
+}
+
+
+.logo{
+    width: 50px;
+    cursor: pointer;
+    margin: 0 3px; /* udaljenost logo-a i nav-links od gornje margine */
+}
+
+
+
+nav{
+    display: flex;
+    padding: 0.7px 3%; /* koliko je logo udaljen od margine kao i navbar */
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav img{
+    width: 200px;
+}
+
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 5px 25px;
+    position: relative;
+}
+
+.nav-links ul li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.nav-links ul li a:hover{
+    color: #b35e5e;
+
+
+
+}
+
+.nav-links ul li ul{
+    position: absolute;
+    left: -39px;
+    width: 170px;
+    background: none;
+    text-align: start;
+    display: none;
+
+}
+
+.nav-links ul li ul li{
+    width: 34%;
+
+
+}
+
+.nav-links ul li ul li ul{
+    left: 200px;
+    top:0;
+}
+
+.nav-links ul li:hover > ul{
+    display: initial;
+    margin-top: 25px;
+}
+
+#menu-bar{
+    display: none;
+}
+
+label{
+    font-size: 15px;
+    color: black;
+    cursor: pointer;
+    display: none;
+}
+
+.header{
+    min-height: 89vh;
+    width: 100%;
+    background-color: #0f4646;
+    background-size: cover;
+    background-position: center;
+    margin-top: 8px;
+
+
+}
+
+/*kontakt */
+
+.container{
+    margin: 20px 40px 40px 40px; /* pozicija celog container-a */
+    width: 85%;
+    background: #104646;
+    border-radius: 6px;
+    padding: 20px 60px 30px 40px; /* velicina container-a*/
+    /*box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); dodati ako hocemo senku oko container-a */
+
+
+}
+
+.container h1{
+    color: #1c0f0f;
+    margin-left: 48%;
+    font-weight: bold;
+    font-size: 40px;
+
+}
+.container p{
+    color: white;
+    text-align: center;
+    margin-left: 120px;
+
+}
+
+
+.container .content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container .content .left-side{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px; /* koliko ce adresa, telefon i email biti udaljena od gornje ivice*/
+    position: relative;
+}
+.content .left-side::before{
+    content: '';
+    position: absolute;
+    height: 70%;
+    width: 2px;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #afafb6;
+}
+.content .left-side .details{
+    margin: 14px;
+    text-align: center;
+}
+.content .left-side .details i{
+    font-size: 30px;
+    color: #3e2093;
+    margin-bottom: 10px;
+}
+.content .left-side .details .topic{
+    font-size: 18px;
+    font-weight: 500;
+}
+.content .left-side .details .text-one,
+.content .left-side .details .text-two{
+    font-size: 14px;
+    color: #afafb6;
+}
+.container .content .right-side{
+    width: 75%;
+    margin-left: 75px;
+}
+.content .right-side .topic-text{
+    font-size: 23px;
+    font-weight: 600;
+    color: #3e2093;
+}
+.right-side .input-box{
+    height: 50px;
+    width: 100%;
+    margin: 12px 0;
+}
+.right-side .input-box input,
+.right-side .input-box textarea{
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #F0F1F8;
+    border-radius: 6px;
+    padding: 0 15px;
+    resize: none;
+}
+.right-side .message-box{
+    min-height: 110px;
+
+}
+
+
+.right-side .input-box textarea{
+    padding-top: 6px;
+}
+.right-side .button{
+    display: inline-block;
+    margin-top: 12px;
+}
+.right-side .button input[type="button"]{
+    color: #fff;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: #3e2093;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.button input[type="button"]:hover{
+    background: #5029bc;
+}
+
+@media (max-width: 950px) {
+    .container{
+        width: 78%;
+        padding: 30px 40px 40px 35px ;
+    }
+    .container .content .right-side{
+        width: 75%;
+        margin-left: 55px;
+    }
+    .container h1{
+        font-size: 25px;
+        margin-left: 40%;
+    }
+    .container p{
+        font-size: 15px;
+        margin-left: 12%;
+    }
+
+}
+@media (max-width: 820px) {
+    .container{
+        margin: 40px 0;
+        height: 100%;
+    }
+    .container .content{
+        flex-direction: column-reverse;
+    }
+    .container .content .left-side{
+        width: 100%;
+        flex-direction: row;
+        margin-top: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .container .content .left-side::before{
+        display: none;
+    }
+    .container .content .right-side{
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.btn {
+    background-color: #0446aa;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.btn:hover {
+    opacity:1;
+}
+

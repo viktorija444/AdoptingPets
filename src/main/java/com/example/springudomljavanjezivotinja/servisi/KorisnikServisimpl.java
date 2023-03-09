@@ -3,57 +3,62 @@ package com.example.springudomljavanjezivotinja.servisi;
 import com.example.springudomljavanjezivotinja.model.Korisnik;
 import com.example.springudomljavanjezivotinja.model.Role;
 import com.example.springudomljavanjezivotinja.respositories.KorisnikRepository;
-import com.example.springudomljavanjezivotinja.web.dto.KorisnikRegistracijaDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Optional;
 
 
 @Service
-public class KorisnikServisimpl implements KorisnikServis {
+public class KorisnikServisimpl implements KorisnikServis, UserDetailsService {
 
+    @Autowired
     private KorisnikRepository korisnikRepository;
 
     @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public KorisnikServisimpl(KorisnikRepository korisnikRepository) {
-        super();
-        this.korisnikRepository = korisnikRepository;
+    @Override
+    public void save(Korisnik korisnik) {
+        String encodedPassword = bCryptPasswordEncoder.encode(korisnik.getPassword());
+        korisnik.setPassword(encodedPassword);
+        korisnik.setRole(Role.USER);
+        korisnikRepository.save(korisnik);
     }
 
     @Override
-    public Korisnik save(KorisnikRegistracijaDto registracijaDto) {
-        Korisnik korisnik = new Korisnik(registracijaDto.getIme(),
-                registracijaDto.getPrezime(), registracijaDto.getEmail(),
-                registracijaDto.getBrojTelefona(), registracijaDto.getPotvrdaLozinke(),
-                passwordEncoder.encode(registracijaDto.getLozinka()), Arrays.asList(new Role("ROLE_USER")));
-
-    return korisnikRepository.save(korisnik);
-
-    }
-
-
-    @Override
-    public UserDetails loadUserByUsername(String ime) throws UsernameNotFoundException {
-
-        Korisnik korisnik = korisnikRepository.findByEmail(ime);
-        if(korisnik == null) {
-            throw new UsernameNotFoundException("Invalid username or password.");
+    public List<Object> isKorisnikPresent(Korisnik korisnik) {
+        boolean postojeciKorisnik = false;
+        String message = null;
+        Optional<Korisnik> postojeciKorisnickiEmail = korisnikRepository.findByEmail(korisnik.getEmail());
+        if(postojeciKorisnickiEmail.isPresent()){
+            postojeciKorisnik = true;
+            message = "Email vec postoji!";
         }
-        return new org.springframework.security.core.userdetails.User(korisnik.getEmail(), korisnik.getLozinka(), mapRolesToAuthorities(korisnik.getRoles()));
-    }
-    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
-        return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+        Optional<Korisnik> postojeciBrojTelefona = korisnikRepository.findByBrojTelefona(korisnik.getBrojTelefona());
+        if(postojeciBrojTelefona.isPresent()){
+            postojeciKorisnik = true;
+            message = "Broj telefona vec postoji!";
+        }
+        if (postojeciKorisnickiEmail.isPresent() && postojeciBrojTelefona.isPresent()) {
+            message = "Email and Mobile Number Both Already Present!";
+        }
+        System.out.println("existingUserEmail.isPresent() - "+postojeciKorisnickiEmail.isPresent()+"existingUserMobile.isPresent() - "+postojeciBrojTelefona.isPresent());
+        return Arrays.asList(postojeciKorisnik, message);
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return korisnikRepository.findByEmail(email).orElseThrow(
+                ()-> new UsernameNotFoundException(
+                        String.format("USER_NOT_FOUND", email)
+              )  );
+    }
 }

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/kontakt.css}" />
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js" rel="stylesheet"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<div class="top-bar">
+    <span><ion-icon name="call"></ion-icon> 111-222-333 </span>
+
+
+    <ul>
+        <li><a href="#">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a></li>
+        <li><a href="#">
+            <ion-icon name="logo-instagram"></ion-icon>
+        </a></li>
+        <li><a href="#">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a></li>
+    </ul>
+</div>
+
+<section class="header">
+    <nav>
+
+
+        <img th:src="@{/images/141-1415512_mfc-cat-logo-contrast-animal-welfare-drawing.png}" class="logo" />
+        <!-- dodali smo ove "/../" -> da bismo mogli da ucitamo sliku u registraciji -->
+
+        <a> UDOMLJAVANJE ZIVOTINJA </a>
+
+        <div class="nav-links" id="navLinks">
+
+            <ul>
+                <li><a href="index"><ion-icon name="home"></ion-icon></a></li>
+                <li><a href="">Udomi</a>
+
+                    <ul>
+                        <li><a href="macke">Macke</a></li>
+                        <li><a href="">Psi</a></li>
+
+                    </ul>
+
+                </li>
+                <li><a href="">Udomljene zivotinje</a></li>
+                <li><a href="onama">O nama</a></li>
+                <li><a href="">Kontakt</a></li>
+                <li><a href="prijava">Prijava</a></li>
+                <li><a href="registracija">Registracija</a></li>
+
+
+            </ul>
+
+
+        </div>
+    </nav>
+<div class="container">
+    <h1>Kontakt</h1>
+    <p>Popunite ovaj obrazac kako biste poslali poruku</p>
+    <hr>
+    <div class="content">
+        <div class="left-side">
+            <div class="address details">
+                <ion-icon name="pin"></ion-icon>
+                <div class="topic">Adresa</div>
+                <div class="text-one">Beograd</div>
+                <div class="text-two">Njegoseva 1</div>
+            </div>
+            <div class="phone details">
+                <ion-icon name="call"></ion-icon>
+                <div class="topic">Telefon</div>
+                <div class="text-one">+381 60 111 111</div>
+                <div class="text-two">+381 61 222 222</div>
+            </div>
+            <div class="email details">
+                <ion-icon name="mail"></ion-icon>
+                <div class="topic">Email</div>
+                <div class="text-one">udomljavanjezivotinja@gmail.com</div>
+                <div class="text-two">informacijeudruzenja@gmail.com</div>
+            </div>
+        </div>
+
+
+        <div class="right-side">
+            <div class="topic-text">KONTAKTIRAJTE NAS</div>
+
+            <form action="#">
+                <div class="input-box">
+                    <input type="text" placeholder="Ime">
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Email">
+                </div>
+                <div class="input-box message-box">
+                    <input type="text" placeholder="Poruka">
+                </div>
+                <div class="button">
+                    <input type="button" value="Posalji" >
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    </section>
+</body>
+</html>

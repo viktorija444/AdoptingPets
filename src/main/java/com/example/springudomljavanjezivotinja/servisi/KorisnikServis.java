@@ -5,11 +5,13 @@ import com.example.springudomljavanjezivotinja.web.dto.KorisnikRegistracijaDto;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
+import java.util.Objects;
 
 public interface KorisnikServis extends UserDetailsService {
 
 
-      Korisnik save(KorisnikRegistracijaDto registracijaDto);
+      public void save(Korisnik korisnik);
+      public List<Object> isKorisnikPresent(Korisnik korisnik);
 
 
 
