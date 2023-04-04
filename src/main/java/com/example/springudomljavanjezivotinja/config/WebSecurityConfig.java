@@ -1,6 +1,6 @@
 package com.example.springudomljavanjezivotinja.config;
 
-import com.example.springudomljavanjezivotinja.servisi.KorisnikServisimpl;
+import com.example.springudomljavanjezivotinja.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +25,7 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return new KorisnikServisimpl();
+        return new UserServiceImpl();
     }
 
     @Bean
@@ -56,10 +56,11 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/registracija**",
                         "/korisnickinalog**",
                         "/onama**",
-                        "/dodavanjezivotinje**",
-                        "/kontakt**",
-                        "/macke**",
-                        "/prijava**",
+                        "/add_pets**",
+                        "/contact**",
+                        "/cats**",
+                        "/dogs**",
+                        "/login**",
                         "/index**",
                         "/js/**",
                         "/css/**",

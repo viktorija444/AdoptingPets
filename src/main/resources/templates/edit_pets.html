@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/edit_pets.css}" />
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js" rel="stylesheet"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<div class="top-bar">
+    <span><ion-icon name="call"></ion-icon> 111-222-333 </span>
+
+
+    <ul>
+        <li><a href="#">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a></li>
+        <li><a href="#">
+            <ion-icon name="logo-instagram"></ion-icon>
+        </a></li>
+        <li><a href="#">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a></li>
+    </ul>
+</div>
+
+
+<section class="header">
+    <nav>
+
+
+        <img th:src="@{/images/141-1415512_mfc-cat-logo-contrast-animal-welfare-drawing.png}" class="logo" />
+        <!-- dodali smo ove "/../" -> da bismo mogli da ucitamo sliku u registraciji -->
+
+        <a> ADOPTING PETS </a>
+
+        <input type="checkbox" id="menu-bar">
+        <label1 for="menu-bar">Menu</label1>
+
+        <div class="nav-links" id="navLinks">
+
+            <ul>
+                <li><a href="/"><ion-icon name="home"></ion-icon></a></li>
+                <li><a href="">Adopt</a>
+
+                    <ul>
+                        <li><a href="cats">Cats</a></li>
+                        <li><a href="dogs">Dogs</a></li>
+
+                    </ul>
+
+                </li>
+                <li><a href="">Udomljene zivotinje</a></li>
+                <li><a href="about_us">About Us</a></li>
+                <li><a href="contact">Contact</a></li>
+                <li><a href="login">Login</a></li>
+                <li><a href="registration">Registration</a></li>
+
+
+            </ul>
+
+
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <h1>Add New Pet</h1>
+
+        <hr>
+
+        <form th:action="@{/macke/{id} (id=${zivotinje.id})}" th:object = "${zivotinje}" method="POST" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label class="control-label" for="imeLjubimca">
+                    Ime Ljubimca
+                </label>
+                <input id="imeLjubimca" class="form-control" type="text" th:field="*{imeLjubimca}"
+                       required autofocus="autofocus"/>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="opis">
+                    Opis
+                </label>
+                <input id="opis" class="form-control" type="text" th:field="*{opis}"
+                       required autofocus="autofocus"/>
+
+            </div>
+            <div class="form-group">
+                Tip Ljubimca
+                </label>
+                <select th:field="*{tipLjubimca}" required >
+                    <option value="MACKA">MACKA</option>
+                    <option value="PAS">PAS</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="datumRodjenja">
+                    Datum Rodjenja
+                </label>
+                <input id="datumRodjenja" class="form-control" type="date" th:field="*{datumRodjenja}"
+                       required autofocus="autofocus"/>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="datumRodjenja">
+                    Dodaj Sliku
+                </label>
+                <input type="file" name="file" class="custom-file-input"
+                       id="customFile"> <label class="custom-file-label"
+                                               for="customFile"></label>
+            </div>
+
+
+            <button type="submit" class="registerbtn">Update novog ljubimca</button>
+        </form>
+    </div>
+</section>
+</body>
+</html>

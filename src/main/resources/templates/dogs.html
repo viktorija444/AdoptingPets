@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/dogs.css}"  />
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js" rel="stylesheet"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<div class="top-bar">
+    <span><ion-icon name="call"></ion-icon> 111-222-333 </span>
+
+
+    <ul>
+        <li>
+            <form th:action="@{/dogs}">
+                <input type="text"  name="keyword" id="keyword" size="25"  placeholder="Search" th:value="${keyword}" required />
+        </li>
+        <li>
+            &nbsp;
+            <button type="submit">
+                <a href="#"><ion-icon name="search"></ion-icon></a>
+            </button>
+            &nbsp;
+            <button type="reset">
+                <a href="#"><ion-icon name="refresh" id="btnClear" onclick="clearSearch()" /></a>
+            </button>
+            </form>
+        </li>
+        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+    </ul>
+</div>
+
+
+<section class="header">
+    <nav>
+
+
+        <img th:src="@{/images/141-1415512_mfc-cat-logo-contrast-animal-welfare-drawing.png}" class="logo" />
+        <!-- dodali smo ove "/../" -> da bismo mogli da ucitamo sliku u registraciji -->
+
+        <a> ADOPTING PET </a>
+
+
+        <input type="checkbox" id="menu-bar">
+        <label1 for="menu-bar">Menu</label1>
+
+        <div class="nav-links" id="navLinks">
+
+            <ul>
+
+                <li><a href="/"><ion-icon name="home"></ion-icon></a></li>
+                <li><a href="">Adopt</a>
+
+                    <ul>
+                        <li><a href="cats">Cats</a></li>
+                        <li><a href="">Dogs</a></li>
+
+                    </ul>
+
+                </li>
+                <li><a href="">Udomljene zivotinje</a></li>
+                <li><a href="about_us">About Us</a></li>
+                <li><a href="contact">Contact</a></li>
+                <li><a href="login">Login</a></li>
+                <li><a href="registration">Registration</a></li>
+
+
+
+
+            </ul>
+
+
+
+        </div>
+    </nav>
+
+    <div class="title">
+        <h1>Dogs</h1>
+
+        <p sec:authorize="hasRole('ROLE_ANONYMOUS')">Login so You Can Get Your Pet!</p>
+        <div sec:authorize="isAuthenticated()">
+            <a href="dogs/add_dog"  class="hero-btn">Add New Dog</a>
+        </div>
+    </div>
+
+
+    <div class="gallery">
+        <thead class="thead-dark">
+        <tr>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr  th:each="dog : ${dogs}">
+            <div class="des">
+                <td th:text="${dogs.petName}"></td>
+                <td th:text="${dogs.typeOfPet}"></td>
+                <td th:text="${dogs.description}"></td>
+                <td th:text="${dogs.dateOfBirth}"></td>
+                <th scope="col"><img alt="" th:src="*{'data:image/jpeg;base64,'+{dogs.image}}" style="width: 400px;height: 400px;"> </th>
+
+            </div>
+
+
+            <td>
+                <div sec:authorize="hasAuthority('ADMIN')">
+                    <a th:href = "@{/edit/{id}(id=${dogs.id})}"
+                       class = "btn btn-primary">Update</a>
+                </div>
+            </td>
+            <td>
+                <div sec:authorize="hasAuthority('ADMIN')">
+                    <a th:href="@{/{id}(id=${dogs.id})}"
+                       class="btn btn-danger mt-4">delete</a>
+                </div>
+            </td>
+
+    </div>
+
+    </tr>
+    </div>
+    </tbody>
+    </table>
+
+</section>
+
+<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/dogs}]]";
+    }
+</script>
+</body>
+</html>

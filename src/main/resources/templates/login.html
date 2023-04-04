@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/login.css}"  />
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js" rel="stylesheet"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<div class="top-bar">
+    <span><ion-icon name="call"></ion-icon> 111-222-333 </span>
+
+
+    <ul>
+        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+    </ul>
+</div>
+
+
+<section class="header">
+    <nav>
+
+
+        <img th:src="@{/images/141-1415512_mfc-cat-logo-contrast-animal-welfare-drawing.png}" class="logo" />
+        <!-- dodali smo ove "/../" -> da bismo mogli da ucitamo sliku u registraciji -->
+
+        <a> UDOMLJAVANJE ZIVOTINJA </a>
+
+
+        <input type="checkbox" id="menu-bar">
+        <label1 for="menu-bar">Menu</label1>
+
+        <div class="nav-links" id="navLinks">
+
+            <ul>
+                <li><a href="/"><ion-icon name="home"></ion-icon></a></li>
+                <li><a href="">Udomi</a>
+
+                    <ul>
+                        <li><a href="macke">Macke</a></li>
+                        <li><a href="psi">Psi</a></li>
+
+                    </ul>
+
+                </li>
+                <li><a href="">Udomljene zivotinje</a></li>
+                <li><a href="onama">O nama</a></li>
+                <li><a href="kontakt">Kontakt</a></li>
+                <li><a href="">Prijava</a></li>
+                <li><a href="registracija">Registracija</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div class="container">
+
+
+        <h1>Prijava</h1>
+
+
+        <hr>
+
+            <!-- error message -->
+            <div th:if="${param.error}">
+                <div class="alert alert-danger">Pogresna sifra ili korisnicko ime.</div>
+            </div>
+
+            <!-- logout message -->
+            <div th:if="${param.logout}">
+                <div class="alert alert-info">Niste ulogovani.</div>
+            </div>
+        <form th:action="@{/prijava}" method="post">
+        <div class = "form-group">
+            <label for ="email"> Korisnicko ime </label> :
+            <input type="text" class = "form-control" id ="email" name = "email"
+                   placeholder="Unesite Email" autofocus="autofocus">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Lozinka</label>:
+            <input type="password" id="password" name="password" class="form-control"
+                   placeholder="Unesite Lozinku" />
+        </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <input type="submit" name="login-submit" id="login-submit"
+                               class="registerbtn" value="Prijava" />
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+</body>
+</html>

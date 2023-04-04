@@ -1,6 +1,5 @@
 package com.example.springudomljavanjezivotinja.web.controllers;
 
-import com.example.springudomljavanjezivotinja.servisi.MackeServis;
 import com.example.springudomljavanjezivotinja.servisi.ZivotinjeServis;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

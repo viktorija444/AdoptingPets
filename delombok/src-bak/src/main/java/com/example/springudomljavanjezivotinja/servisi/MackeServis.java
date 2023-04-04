@@ -1,5 +1,4 @@
 package com.example.springudomljavanjezivotinja.servisi;
-import com.example.springudomljavanjezivotinja.model.Macke;
 
 import java.util.List;
 

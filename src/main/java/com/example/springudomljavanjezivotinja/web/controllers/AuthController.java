@@ -1,8 +1,8 @@
 package com.example.springudomljavanjezivotinja.web.controllers;
 
 
-import com.example.springudomljavanjezivotinja.model.Korisnik;
-import com.example.springudomljavanjezivotinja.servisi.KorisnikServis;
+import com.example.springudomljavanjezivotinja.model.User;
+import com.example.springudomljavanjezivotinja.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,35 +17,35 @@ import java.util.List;
 public class AuthController {
 
     @Autowired
-    KorisnikServis korisnikServis;
+    UserService userService;
 
-    @RequestMapping(value = {"/prijava"}, method = RequestMethod.GET)
-    public String prijavaKlik(){
-        return "prijava";
+    @RequestMapping(value = {"/login"}, method = RequestMethod.GET)
+    public String loginPage(){
+        return "login";
     }
 
-    @RequestMapping(value = {"/registracija"}, method = RequestMethod.GET)
-    public String registracijaKlik(Model model){
-        model.addAttribute("korisnik", new Korisnik());
-        return "registracija";
+    @RequestMapping(value = {"/registration"}, method = RequestMethod.GET)
+    public String registrationPage(Model model){
+        model.addAttribute("user", new User());
+        return "registration";
     }
 
-    @RequestMapping(value = {"/registracija"}, method = RequestMethod.POST)
-    public String registracijaKorisnika(Model model, @Valid Korisnik korisnik, BindingResult bindingResult){
+    @RequestMapping(value = {"/registration"}, method = RequestMethod.POST)
+    public String registrationUser(Model model, @Valid User user, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
-            model.addAttribute("successMessage", "Korisnik uspesno registrovan!");
+            model.addAttribute("successMessage", "User successfully register!");
             model.addAttribute("bindingResult", bindingResult);
-            return "registracija";
+            return "registration";
         }
-        List<Object> userPresentObj = korisnikServis.isKorisnikPresent(korisnik);
+        List<Object> userPresentObj = userService.isUserPresent(user);
         if((Boolean) userPresentObj.get(0)){
             model.addAttribute("successMessage", userPresentObj.get(1));
-            return "registracija";
+            return "registration";
         }
 
-        korisnikServis.save(korisnik);
-        model.addAttribute("successMessage", "Korisnik uspesno registrovan!");
+        userService.save(user);
+        model.addAttribute("successMessage", "User successfully register!");
 
-        return "prijava";
+        return "login";
     }
 }

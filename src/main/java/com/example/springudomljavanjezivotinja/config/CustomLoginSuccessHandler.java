@@ -26,7 +26,7 @@ public class CustomLoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
     }
 
     protected String determineTargetUrl(Authentication authentication){
-        String url = "/prijava?error=true";
+        String url = "/login?error=true";
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         List<String> roles = new ArrayList<>();
         for(GrantedAuthority a : authorities){

@@ -1,7 +1,5 @@
 package com.example.springudomljavanjezivotinja.servisi;
 
-import com.example.springudomljavanjezivotinja.model.Macke;
-import com.example.springudomljavanjezivotinja.respositories.MackeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
