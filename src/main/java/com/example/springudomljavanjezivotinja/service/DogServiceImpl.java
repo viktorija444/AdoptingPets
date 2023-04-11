@@ -96,7 +96,6 @@ public class DogServiceImpl implements DogService{
         }
         existingDog.setId(id);
         existingDog.setPetName(dogs.getPetName());
-        existingDog.setTypeOfPet(dogs.getTypeOfPet());
         existingDog.setDescription(dogs.getDescription());
         existingDog.setDateOfBirth(dogs.getDateOfBirth());
         return dogRepository.save(existingDog);

@@ -62,7 +62,6 @@
                     </ul>
 
                 </li>
-                <li><a href="">Udomljene zivotinje</a></li>
                 <li><a href="about_us">About Us</a></li>
                 <li><a href="contact">Contact</a></li>
                 <li><a href="login">Login</a></li>
@@ -83,7 +82,7 @@
 
         <p sec:authorize="hasRole('ROLE_ANONYMOUS')">Login so You Can Get Your Pet!</p>
         <div sec:authorize="isAuthenticated()">
-            <a href="dogs/add_dog"  class="hero-btn">Add New Dog</a>
+            <a href="add_dog"  class="hero-btn">Add New Dog</a>
         </div>
     </div>
 
@@ -95,27 +94,32 @@
         </tr>
         </thead>
         <tbody>
-        <tr  th:each="dog : ${dogs}">
-            <div class="des">
-                <td th:text="${dogs.petName}"></td>
-                <td th:text="${dogs.typeOfPet}"></td>
-                <td th:text="${dogs.description}"></td>
-                <td th:text="${dogs.dateOfBirth}"></td>
+        <tr  th:each="dogs : ${dogs}">
+            <div class="row">
+                <div class="column">
                 <th scope="col"><img alt="" th:src="*{'data:image/jpeg;base64,'+{dogs.image}}" style="width: 400px;height: 400px;"> </th>
 
-            </div>
+                <div class="des">
+                <td th:text="${dogs.petName}"></td>
+                    </div>
+                <div class="des">
+                    <td th:text="${dogs.description}"></td>
+                </div>
+                <div class="des">
+                <td th:text="${dogs.dateOfBirth}"></td>
+                </div>
+                </div>
 
-
-            <td>
+                <td>
                 <div sec:authorize="hasAuthority('ADMIN')">
-                    <a th:href = "@{/edit/{id}(id=${dogs.id})}"
+                    <a th:href = "@{dogs/edit/{id}(id=${dogs.id})}"
                        class = "btn btn-primary">Update</a>
                 </div>
             </td>
             <td>
                 <div sec:authorize="hasAuthority('ADMIN')">
-                    <a th:href="@{/{id}(id=${dogs.id})}"
-                       class="btn btn-danger mt-4">delete</a>
+                    <a th:href="@{/dogs/{id}(id=${dogs.id})}"
+                       class="btn btn-danger mt-4">Delete</a>
                 </div>
             </td>
 

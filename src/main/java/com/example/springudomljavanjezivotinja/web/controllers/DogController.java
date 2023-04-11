@@ -64,25 +64,25 @@ public class DogController {
 //
 // }
 
-    @PostMapping("/add_pets")
+    @PostMapping("/add_dog")
     public String saveDog(@RequestParam("file") MultipartFile file,
                           @ModelAttribute @Valid Dog dogs) {
 
         dogService.saveDog(file, dogs);
 
-        return "redirect:/cats";
+        return "redirect:/dogs";
     }
 
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("dogs/edit/{id}")
     public String editDog(@PathVariable Long id, Model model) {
         model.addAttribute("dogs", dogService.get(id));
-        return "edit_pets";
+        return "edit_dog";
     }
 
 
 
-    @PostMapping("/{id}")
+    @PostMapping("dogs/{id}")
     public String updateDog(@PathVariable Long id,
                             @RequestParam("file") MultipartFile file,
                             @ModelAttribute("dog") Dog dog,
@@ -96,7 +96,7 @@ public class DogController {
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("dogs/{id}")
     public String deleteDog(@PathVariable Long id) {
         dogService.deleteDogById(id);
 

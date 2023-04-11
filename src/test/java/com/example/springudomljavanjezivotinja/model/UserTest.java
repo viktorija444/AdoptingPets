@@ -3,15 +3,15 @@ package com.example.springudomljavanjezivotinja.model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class KorisnikTest {
+class UserTest {
 
-    Korisnik korisnik;
+   User user;
 
     @BeforeEach
     void setUp() {
-        korisnik = new Korisnik(5L, "", "", "","", "");
+        user = new User(5L, "Marko", "Markovic", "markomarkovic@gmail.com","0602222222", "klopka12");
     }
 
     @Test
@@ -38,9 +38,9 @@ class KorisnikTest {
     void getId() throws Exception{
         Long idValue = 4L;
 
-        korisnik.setId(idValue);
+        user.setId(idValue);
 
-        assertEquals(idValue, korisnik.getId());
+        assertEquals(idValue, user.getId());
     }
 
     @Test

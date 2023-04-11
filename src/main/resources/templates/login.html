@@ -27,7 +27,7 @@
         <img th:src="@{/images/141-1415512_mfc-cat-logo-contrast-animal-welfare-drawing.png}" class="logo" />
         <!-- dodali smo ove "/../" -> da bismo mogli da ucitamo sliku u registraciji -->
 
-        <a> UDOMLJAVANJE ZIVOTINJA </a>
+        <a> ADOPTING PETS </a>
 
 
         <input type="checkbox" id="menu-bar">
@@ -37,20 +37,19 @@
 
             <ul>
                 <li><a href="/"><ion-icon name="home"></ion-icon></a></li>
-                <li><a href="">Udomi</a>
+                <li><a href="">Adopt</a>
 
                     <ul>
-                        <li><a href="macke">Macke</a></li>
-                        <li><a href="psi">Psi</a></li>
+                        <li><a href="cats">Cats</a></li>
+                        <li><a href="dogs">Dogs</a></li>
 
                     </ul>
 
                 </li>
-                <li><a href="">Udomljene zivotinje</a></li>
-                <li><a href="onama">O nama</a></li>
-                <li><a href="kontakt">Kontakt</a></li>
-                <li><a href="">Prijava</a></li>
-                <li><a href="registracija">Registracija</a></li>
+                <li><a href="about_us">About Us</a></li>
+                <li><a href="contact">Contact</a></li>
+                <li><a href="">Login</a></li>
+                <li><a href="registration">Registration</a></li>
             </ul>
         </div>
     </nav>
@@ -60,38 +59,38 @@
     <div class="container">
 
 
-        <h1>Prijava</h1>
+        <h1>Login</h1>
 
 
         <hr>
 
             <!-- error message -->
             <div th:if="${param.error}">
-                <div class="alert alert-danger">Pogresna sifra ili korisnicko ime.</div>
+                <div class="alert alert-danger">Wrong password or username.</div>
             </div>
 
             <!-- logout message -->
             <div th:if="${param.logout}">
-                <div class="alert alert-info">Niste ulogovani.</div>
+                <div class="alert alert-info">You are not logged in.</div>
             </div>
-        <form th:action="@{/prijava}" method="post">
+        <form th:action="@{/login}" method="post">
         <div class = "form-group">
-            <label for ="email"> Korisnicko ime </label> :
+            <label for ="email"> Username </label> :
             <input type="text" class = "form-control" id ="email" name = "email"
-                   placeholder="Unesite Email" autofocus="autofocus">
+                   placeholder="Please enter your email address" autofocus="autofocus">
         </div>
 
         <div class="form-group">
-            <label for="password">Lozinka</label>:
+            <label for="password">Password</label>:
             <input type="password" id="password" name="password" class="form-control"
-                   placeholder="Unesite Lozinku" />
+                   placeholder="Please enter your password" />
         </div>
 
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
                         <input type="submit" name="login-submit" id="login-submit"
-                               class="registerbtn" value="Prijava" />
+                               class="registerbtn" value="Login" />
                     </div>
                 </div>
             </div>

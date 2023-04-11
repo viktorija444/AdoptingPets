@@ -17,7 +17,7 @@ a, a:hover{
     align-items: center;
     justify-content: space-between;
     padding: 5px 15px;
-    background: #135422;
+    background: #1c0f0f;
 }
 
 .top-bar span{
@@ -119,7 +119,7 @@ nav img{
 
 label1{
     font-size: 15px;
-    color: black;
+    color: #ffffff;
     cursor: pointer;
     display: none;
 }
@@ -127,7 +127,7 @@ label1{
 .header {
     min-height: 89vh;
     width: 100%;
-    background-color: #398a46;
+    background-color: #0c0e2d;
     background-size: cover;
     background-position: center;
     margin-top: 8px;
@@ -208,7 +208,7 @@ label1{
 }
 
 p{
-    color: #1c0f0f;
+    color: #ffffff;
 }
 
 /* Full-width input fields */

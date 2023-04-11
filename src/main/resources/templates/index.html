@@ -5,7 +5,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        Udomljavajnje Zivotinja
+       Adopting Pets
     </title>
 
     <link rel="stylesheet" th:href="@{/css/style.css}"  />
@@ -24,7 +24,7 @@
 
         <li><a sec:authorize="isAuthenticated()"> <span sec:authentication="authorities"></span></a></li>
         <li><a sec:authorize="isAuthenticated()"> <span sec:authentication="name"></span></a></li>
-        <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Odjavi se</a></li>
+        <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Log Out</a></li>
         <li><a href="https://www.facebook.com/"><ion-icon name="logo-facebook"></ion-icon></a></li>
         <li><a href="https://www.instagram.com/"><ion-icon name="logo-instagram"></ion-icon></a></li>
         <li><a href="https://www.twitter.com/"><ion-icon name="logo-twitter"></ion-icon></a></li>
@@ -37,7 +37,7 @@
 
 
         <img th:src="@{/images/141-1415512_mfc-cat-logo-contrast-animal-welfare-drawing.png}" class="logo" />
-         <a> UDOMLJAVANJE ZIVOTINJA </a>
+         <a> ADOPTING PETS </a>
 
 
             <input type="checkbox" id="menu-bar">
@@ -46,21 +46,20 @@
         <div class="nav-links" id="navLinks">
 
             <ul>
-                <li><a href="">Udomi</a>
+                <li><a href="">Adopt</a>
 
                     <ul>
-                        <li><a href="macke">Macke</a></li>
-                        <li><a href="psi">Psi</a></li>
+                        <li><a href="cats">Cats</a></li>
+                        <li><a href="dogs">Dogs</a></li>
 
                     </ul>
 
                 </li>
-                <li><a href="">Udomljene zivotinje</a></li>
-                <li><a href="onama">O nama</a></li>
-                <li><a href="kontakt">Kontakt</a></li>
+                <li><a href="about_us">About Us</a></li>
+                <li><a href="contact">Contact</a></li>
                 <div sec:authorize="hasRole('ROLE_ANONYMOUS')">
-                    <li><a href="prijava">Prijava</a></li>
-                <li><a href="registracija">Registracija</a></li>
+                    <li><a href="login">Login</a></li>
+                <li><a href="registration">Registration</a></li>
                 </div>
 
 
@@ -76,7 +75,7 @@
  <div class="text-box">
 
 
-            <h1>DOBRODOŠLI NA SAJT ZA UDOMLJAVANJE ŽIVOTINJA!</h1>
+            <h1>WELCOME TO SITE FOR ADOPTING PETS!</h1>
             <p> <br> </p>
 
 
@@ -86,21 +85,21 @@
         <section class="facilities">
 
 
-            <h2>GALERIJA</h2>
-            <p1>Slike naših ljubimaca</p1>
+            <h2>GALLERY</h2>
+            <p1>PICTURES OF PETS</p1>
 
                    <div class="row">
                     <div class="facilities-col">
-                        <a href="macke"><img th:src="@{/images/30181102_custom.jpg}" height="400" width="200"></a>
-                           <h3>Mačke</h3>
-                           <p>Klikom na sliku iznad ulazite u galeriju naših maca</p>
+                        <a href="cats"><img th:src="@{/images/30181102_custom.jpg}" height="400" width="200"></a>
+                           <h3>Cats</h3>
+                           <p>Click on the picture above, you are entering to gallery for Cats!</p>
 
                     </div>
 
                         <div class="facilities-col">
-                            <img th:src="@{/images/v-748.jpg}" height="400" width="200">
-                            <h3>Psi</h3>
-                            <p>Klikom na sliku iznad ulazite u galeriju naših kuca</p>
+                            <a href="dogs"><img th:src="@{/images/v-748.jpg}" height="400" width="200"></a>
+                            <h3>Dogs</h3>
+                            <p>Click on the picture above, you are entering to gallery for Dogs!</p>
 
                 </div>
                  </div>
@@ -113,18 +112,20 @@
 </section>
 <section class="cta">
     <h1>
-        Ako želite da udomite ljubimca ili ako imate neko pitanje,<br> možete da posaljete poruku klikom na dugme <br>
-        ispod ili pozivom na broj koji je naveden u delu "Kontakt"
+        If you wish to adopt a pet or if you have any questions,<br> please send an email by clicking the button <br>
+        below, or by calling the number in the "Contact" section.
+
     </h1>
-    <a href="/kontakt" class="hero-btn">Kontakt</a>
+    <a href="/contact" class="hero-btn">Contact</a>
 </section>
 
 <hr>
 <section class="footer">
-    <h4>O nama</h4>
-    <p>Napravili smo ovaj sajt da bi na lakši način mogli da udomimo životinje koje su  <br>
-    bez doma trenutno, tu smo šta god da zatreba</p>
-    <p>Žiro račun na koji možete da uplatite novac za pomoć životinjama bez doma: 170-11111111111111-11  <ion-icon name="paw"></ion-icon></p>
+    <h4>About Us</h4>
+    <p>The mission of this website is to make adopting pets easier then before <br>
+        We are here to help you find a lovely furry friend!</p>
+
+    <p>Bank account: 170-11111111111111-11  <ion-icon name="paw"></ion-icon></p>
 
 
 </section>

@@ -14,8 +14,8 @@
 
     <ul>
         <li>
-        <form th:action="@{/templates/cats}">
-        <input type="text"  name="keyword" id="keyword" size="25"  placeholder="Pretrazi" th:value="${keyword}" required />
+        <form th:action="@{/cats}">
+        <input type="text"  name="keyword" id="keyword" size="25"  placeholder="Search" th:value="${keyword}" required />
         </li>
         <li>
             &nbsp;
@@ -52,7 +52,7 @@
 
             <ul>
 
-                <li><a href="/static"><ion-icon name="home"></ion-icon></a></li>
+                <li><a href="/"><ion-icon name="home"></ion-icon></a></li>
                 <li><a href="">Adopt</a>
 
                     <ul>
@@ -62,7 +62,6 @@
                     </ul>
 
                 </li>
-                <li><a href="">Udomljene zivotinje</a></li>
                 <li><a href="about_us">About Us</a></li>
                 <li><a href="contact">Contact</a></li>
                 <li><a href="login">Login</a></li>
@@ -81,9 +80,9 @@
     <div class="title">
         <h1>Cats</h1>
 
-        <p sec:authorize="hasRole('ROLE_ANONYMOUS')">Login so You Can Get Your Pet!</p>
+        <p sec:authorize="hasRole('ROLE_ANONYMOUS')">Login so you can get your pet!</p>
         <div sec:authorize="isAuthenticated()">
-        <a href="cats/add_cat" class="hero-btn">Add New Pet</a>
+        <a href="add_cat" class="hero-btn">Add New Cat</a>
         </div>
     </div>
 
@@ -95,29 +94,35 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr  th:each="cat : ${cats}">
+                    <tr  th:each="cats : ${cats}">
+                        <div class="row">
+                            <div class="column">
+                        <th scope="col"><img alt="" th:src="*{'data:image/jpeg;base64,'+{cats.image}}" style="width: 400px;height: 400px;"> </th>
+
                         <div class="des">
                             <td th:text="${cats.petName}"></td>
-                            <td th:text="${cats.typeOfPet}"></td>
-                            <td th:text="${cats.description}"></td>
-                            <td th:text="${cats.dateOfBirth}"></td>
-                            <th scope="col"><img alt="" th:src="*{'data:image/jpeg;base64,'+{cats.image}}" style="width: 400px;height: 400px;"> </th>
-
                         </div>
-
+                        <div class="des">
+                            <td th:text="${cats.description}"></td>
+                        </div>
+                        <div class="des">
+                            <td th:text="${cats.dateOfBirth}"></td>
+                        </div>
+                        </div>
 
                         <td>
                             <div sec:authorize="hasAuthority('ADMIN')">
-                            <a th:href = "@{/edit/{id}(id=${cats.id})}"
+                            <a th:href = "@{cats/edit/{id}(id=${cats.id})}"
                                class = "btn btn-primary">Update</a>
                             </div>
                         </td>
                             <td>
                                 <div sec:authorize="hasAuthority('ADMIN')">
-                                <a th:href="@{/{id}(id=${cats.id})}"
-                               class="btn btn-danger mt-4">delete</a>
+                                <a th:href="@{/cats/{id}(id=${cats.id})}"
+                               class="btn btn-danger mt-4">Delete</a>
                                 </div>
                             </td>
+                        </div>
 
         </div>
 

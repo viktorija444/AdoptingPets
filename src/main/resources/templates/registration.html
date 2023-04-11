@@ -33,7 +33,7 @@
         <img th:src="@{/images/141-1415512_mfc-cat-logo-contrast-animal-welfare-drawing.png}" class="logo" />
         <!-- dodali smo ove "/../" -> da bismo mogli da ucitamo sliku u registraciji -->
 
-        <a> UDOMLJAVANJE ZIVOTINJA </a>
+        <a> ADOPTING PETS </a>
 
         <input type="checkbox" id="menu-bar">
         <label1 for="menu-bar">Menu</label1>
@@ -42,20 +42,19 @@
 
             <ul>
                 <li><a href="/"><ion-icon name="home"></ion-icon></a></li>
-                <li><a href="">Udomi</a>
+                <li><a href="">Adopt</a>
 
                     <ul>
-                        <li><a href="macke">Macke</a></li>
-                        <li><a href="psi">Psi</a></li>
+                        <li><a href="cats">Cats</a></li>
+                        <li><a href="dogs">Dogs</a></li>
 
                     </ul>
 
                 </li>
-                <li><a href="">Udomljene zivotinje</a></li>
-                <li><a href="onama">O nama</a></li>
-                <li><a href="kontakt">Kontakt</a></li>
-                <li><a href="prijava">Prijava</a></li>
-                <li><a href="">Registracija</a></li>
+                <li><a href="about_us">About Us</a></li>
+                <li><a href="contact">Contact</a></li>
+                <li><a href="login">Login</a></li>
+                <li><a href="">Registration</a></li>
 
 
             </ul>
@@ -69,28 +68,28 @@
 
         <!-- success message -->
         <div th:if="${param.success}">
-            <div class="alert alert-info">Uspesno ste se registrovali!
+            <div class="alert alert-info">Registration successful!
                 </div>
         </div>
 
-        <h1>Registracija</h1>
-        <p>Popunite ovaj obrazac kako biste napravili nalog</p>
+        <h1>Registration</h1>
+        <p>Please fill this form to create an account</p>
         <hr>
 
-        <form th:action="@{/registracija}" method="post" th:object="${korisnik}">
+        <form th:action="@{/registration}" method="post" th:object="${user}">
             <div class="form-group">
-                <label class="control-label" for="ime">
-                    Ime
+                <label class="control-label" for="first_name">
+                    First Name
                 </label>
-                <input id="ime" class="form-control" type="text" th:field="*{ime}"
+                <input id="first_name" class="form-control" type="text" th:field="*{firstName}"
                        required autofocus="autofocus"/>
             </div>
 
             <div class="form-group">
-                <label class="control-label" for="prezime">
-                    Prezime
+                <label class="control-label" for="last_name">
+                    Last Name
                 </label>
-                <input id="prezime" class="form-control" type="text" th:field="*{prezime}"
+                <input id="last_name" class="form-control" type="text" th:field="*{lastName}"
                        required autofocus="autofocus"/>
             </div>
 
@@ -103,32 +102,35 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label" for="brojTelefona">
-                    Broj Telefona
+                <label class="control-label" for="phoneNumber">
+                    Phone Number
                 </label>
-                <input id="brojTelefona" class="form-control" type="text" th:field="*{brojTelefona}"
+                <input id="phoneNumber" class="form-control" type="text" th:field="*{phoneNumber}"
                        required autofocus="autofocus"/>
             </div>
 
             <div class="form-group">
                 <label class="control-label" for="password">
-                    Lozinka
+                    Password
                 </label>
                 <input id="password" class="form-control" type="password" th:field="*{password}"
                        required autofocus="autofocus"/>
             </div>
+
+
             <div sec:authorize="hasAuthority('ADMIN')">
+
             <select th:field="*{role}" required>
 
-                <option value="">Izaberi</option>
+                <option value="">Select</option>
                 <option value="ADMIN">ADMIN</option>
-                <option value="USER">KORISNIK</option>
+                <option value="USER">USER</option>
 
             </select><br/><br/>
     </div>
             <div class="form-group">
-                <button type="submit" class="registerbtn">Registracija</button>
-                <span>Vec si registrovan? <a href="/" th:href="@{/prijava}">Prijavi se</a></span>
+                <button type="submit" class="registerbtn">Registration</button>
+                <span>Already registered? <a href="/" th:href="@{/login}">Login</a></span>
             </div>
             <span th:utext="${successMessage}"></span>
             <div th:if="${bindingResult!=null && bindingResult.getAllErrors()!=null}">
@@ -142,7 +144,7 @@
 
 <div class="container signin">
     <p1>Vec postoji tvoj nalog?
-       <span> <a1 href="/" th:href="@{/prijava}">Prijava</a1></span>
+       <span> <a1 href="/" th:href="@{/login}">Sing In</a1></span>
     </p1>
 </div>
 </body>

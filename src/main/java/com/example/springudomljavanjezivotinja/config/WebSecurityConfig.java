@@ -53,10 +53,10 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 // URL matching for accessibility
-                .antMatchers("/", "/registracija**",
-                        "/korisnickinalog**",
-                        "/onama**",
-                        "/add_pets**",
+                .antMatchers("/", "/registration**",
+                        "/about_us**",
+                        "/add_dog**",
+                        "/add_cat**",
                         "/contact**",
                         "/cats**",
                         "/dogs**",
@@ -72,8 +72,8 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
                 .and()
                 // form login
                 .csrf().disable().formLogin()
-                .loginPage("/prijava")
-                .failureUrl("/prijava?error=true")
+                .loginPage("/login")
+                .failureUrl("/login?error=true")
                 .successHandler(successHandler)
                 .usernameParameter("email")
                 .passwordParameter("password")
@@ -84,7 +84,7 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/")
                 .and()
                 .exceptionHandling()
-                .accessDeniedPage("/macke");
+                .accessDeniedPage("/cats");
 
         http.authenticationProvider(authenticationProvider());
         http.headers().frameOptions().sameOrigin();

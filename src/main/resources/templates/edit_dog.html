@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" th:href="@{/css/edit_pets.css}" />
+    <link rel="stylesheet" th:href="@{/css/edit_dog.css}" />
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js" rel="stylesheet"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -51,7 +51,6 @@
                     </ul>
 
                 </li>
-                <li><a href="">Udomljene zivotinje</a></li>
                 <li><a href="about_us">About Us</a></li>
                 <li><a href="contact">Contact</a></li>
                 <li><a href="login">Login</a></li>
@@ -66,46 +65,38 @@
 
 
     <div class="container">
-        <h1>Add New Pet</h1>
+        <h1>Update Dog</h1>
 
         <hr>
 
-        <form th:action="@{/macke/{id} (id=${zivotinje.id})}" th:object = "${zivotinje}" method="POST" enctype="multipart/form-data">
+        <form th:action="@{/dogs/{id} (id=${dogs.id})}" th:object = "${dogs}" method="POST" enctype="multipart/form-data">
 
             <div class="form-group">
-                <label class="control-label" for="imeLjubimca">
-                    Ime Ljubimca
+                <label class="control-label" for="petName">
+                    Edit Dog Name
                 </label>
-                <input id="imeLjubimca" class="form-control" type="text" th:field="*{imeLjubimca}"
+                <input id="petName" class="form-control" type="text" th:field="*{petName}"
                        required autofocus="autofocus"/>
             </div>
 
             <div class="form-group">
-                <label class="control-label" for="opis">
-                    Opis
+                <label class="control-label" for="description">
+                   Edit Description
                 </label>
-                <input id="opis" class="form-control" type="text" th:field="*{opis}"
+                <input id="description" class="form-control" type="text" th:field="*{description}"
                        required autofocus="autofocus"/>
 
             </div>
             <div class="form-group">
-                Tip Ljubimca
+                <label class="control-label" for="dateOfBirth">
+                   Edit Date of Birth
                 </label>
-                <select th:field="*{tipLjubimca}" required >
-                    <option value="MACKA">MACKA</option>
-                    <option value="PAS">PAS</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="datumRodjenja">
-                    Datum Rodjenja
-                </label>
-                <input id="datumRodjenja" class="form-control" type="date" th:field="*{datumRodjenja}"
+                <input id="dateOfBirth" class="form-control" type="date" th:field="*{dateOfBirth}"
                        required autofocus="autofocus"/>
             </div>
             <div class="form-group">
-                <label class="control-label" for="datumRodjenja">
-                    Dodaj Sliku
+                <label class="control-label" for="customFile">
+                  Edit Image
                 </label>
                 <input type="file" name="file" class="custom-file-input"
                        id="customFile"> <label class="custom-file-label"
@@ -113,7 +104,7 @@
             </div>
 
 
-            <button type="submit" class="registerbtn">Update novog ljubimca</button>
+            <button type="submit" class="registerbtn">Update Dog</button>
         </form>
     </div>
 </section>

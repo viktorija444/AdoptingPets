@@ -16,7 +16,7 @@ a, a:hover {
     align-items: center;
     justify-content: space-between;
     padding: 5px 15px;
-    background: #135422;
+    background: #1c0f0f;
 }
 
 .top-bar span{
@@ -125,7 +125,7 @@ label{
 .header {
     min-height: 200vh;
     width: 100%;
-    background-color: #98cba6;
+    background-color: #0c0e2d;
     background-size: cover;
     background-position: center;
     margin-top: 8px;
@@ -202,7 +202,7 @@ label{
 .title p{
     text-align: center;
     font-size: 19px;
-    color: #1c0f0f;
+    color: #ffffff;
 
 }
 
@@ -210,7 +210,6 @@ label{
 
 .gallery{
     margin: 25.5px;
-    border: 1px solid rgba(79, 82, 98, 0.7);
     float: none;
     width: 400px;
     display: flex;
@@ -221,9 +220,18 @@ label{
     width: 100%;
     height: auto;
 }
+.row {
+    display: table-column-group;
+}
+
+.column {
+    flex: 33.33%;
+    padding: 67px;
+}
 .des{
     padding: 15px;
     text-align: center;
+    color: white;
 }
 .responsive{
     padding: 0 14.5px;
@@ -245,5 +253,5 @@ label{
 
 
 button {
-    background-color: #104646;
+    background-color: #071234;
 }

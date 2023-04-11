@@ -16,7 +16,7 @@ a, a:hover{
     align-items: center;
     justify-content: space-between;
     padding: 5px 15px;
-    background: #135422;
+    background: #1c0f0f;
 }
 
 .top-bar span{
@@ -118,7 +118,7 @@ nav img{
 
 label{
     font-size: 15px;
-    color: black;
+    color: #ffffff;
     cursor: pointer;
     display: none;
 }
@@ -126,7 +126,7 @@ label{
 .header{
     min-height: 89vh;
     width: 100%;
-    background-color: #0f4646;
+    background-color: #373d9d;
     background-size: cover;
     background-position: center;
     margin-top: 8px;
@@ -139,7 +139,7 @@ label{
 .container{
     margin: 20px 40px 40px 40px; /* pozicija celog container-a */
     width: 85%;
-    background: #104646;
+    background: #373d9d;
     border-radius: 6px;
     padding: 20px 60px 30px 40px; /* velicina container-a*/
     /*box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); dodati ako hocemo senku oko container-a */
@@ -148,7 +148,7 @@ label{
 }
 
 .container h1{
-    color: #1c0f0f;
+    color: #deece1;
     margin-left: 48%;
     font-weight: bold;
     font-size: 40px;

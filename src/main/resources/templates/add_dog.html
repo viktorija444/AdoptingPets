@@ -51,7 +51,6 @@
                     </ul>
 
                 </li>
-                <li><a href="">Udomljene zivotinje</a></li>
                 <li><a href="about_us">About Us</a></li>
                 <li><a href="contact">Contact</a></li>
                 <li><a href="login">Login</a></li>
@@ -66,46 +65,38 @@
 
 
     <div class="container">
-        <h1>Add new pet</h1>
+        <h1>Add New Dog</h1>
 
         <hr>
 
         <form th:action="@{/add_dog}" method="post" th:object="${dogs}" enctype="multipart/form-data" >
 
             <div class="form-group">
-                <label class="control-label" for="imeLjubimca">
-                    Pet Name
+                <label class="control-label" for="petName">
+                    Dog Name
                 </label>
-                <input id="imeLjubimca" class="form-control" type="text" th:field="*{petName}"
+                <input id="petName" class="form-control" type="text" th:field="*{petName}"
                        required autofocus="autofocus"/>
             </div>
 
             <div class="form-group">
-                <label class="control-label" for="opis">
-                    Opis
+                <label class="control-label" for="description">
+                    Description
                 </label>
-                <input id="opis" class="form-control" type="text" th:field="*{description}"
+                <input id="description" class="form-control" type="text" th:field="*{description}"
                        required autofocus="autofocus"/>
 
             </div>
             <div class="form-group">
-                Tip Ljubimca
+                <label class="control-label" for="dateOfBirth">
+                    Date of Birth
                 </label>
-                <select th:field="*{typeOfPet}" required >
-                    <option value="MACKA">MACKA</option>
-                    <option value="PAS">PAS</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="datumRodjenja">
-                    Datum Rodjenja
-                </label>
-                <input id="datumRodjenja" class="form-control" type="date" th:field="*{dateOfBirth}"
+                <input id="dateOfBirth" class="form-control" type="date" th:field="*{dateOfBirth}"
                        required autofocus="autofocus"/>
             </div>
             <div class="form-group">
-                <label class="control-label" for="datumRodjenja">
-                    Dodaj Sliku
+                <label class="control-label" for="customFile">
+                    Image
                 </label>
                 <input type="file" name="file" class="custom-file-input"
                        id="customFile"> <label class="custom-file-label"

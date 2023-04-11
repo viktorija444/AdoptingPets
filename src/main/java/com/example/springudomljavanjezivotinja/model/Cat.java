@@ -13,10 +13,6 @@ public class Cat {
     @Column
     private String petName;
 
-
-    @Enumerated(EnumType.STRING)
-    private TypeOfPet typeOfPet;
-
     @Column
     private String description;
 
@@ -28,14 +24,6 @@ public class Cat {
 
     public Cat(){
 
-    }
-
-    public TypeOfPet getTypeOfPet() {
-        return typeOfPet;
-    }
-
-    public void setTypeOfPet(TypeOfPet typeOfPet) {
-        this.typeOfPet = typeOfPet;
     }
 
     @ManyToOne
@@ -109,8 +97,7 @@ public class Cat {
 
     @Override
     public String toString() {
-        return "Animal [id=" + id + ", petName=" + petName + ", typeOfPet=" + typeOfPet
-                + ", description=" + description + ", dateOfBirth="  + dateOfBirth + " + image="
+        return "Animal [id=" + id + ", petName=" + petName + ", description=" + description + ", dateOfBirth="  + dateOfBirth + " + image="
                 + image + "]";
     }
 

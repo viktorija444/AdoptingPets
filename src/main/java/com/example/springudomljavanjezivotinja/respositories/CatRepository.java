@@ -12,6 +12,6 @@ import java.util.List;
 public interface CatRepository extends JpaRepository<Cat, Long> {
 
     @Query("SELECT p FROM Cat p WHERE p.petName LIKE %?1%"
-            + " OR p.description LIKE %?1% and p.typeOfPet = com.example.springudomljavanjezivotinja.model.TypeOfPet.CAT")
+            + " OR p.description LIKE %?1%")
     List<Cat> search(String keyword);
 }

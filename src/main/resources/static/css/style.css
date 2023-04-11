@@ -16,7 +16,7 @@ a, a:hover {
     align-items: center;
     justify-content: space-between;
     padding: 5px 15px;
-    background: #135422;
+    background: rgb(28, 15, 15);
 }
 
 .top-bar span{
@@ -37,7 +37,7 @@ a, a:hover {
 }
 
 .top-bar a:hover{
-    color: #1c0f0f;
+    color: #0c0505;
 }
 
 
@@ -126,7 +126,7 @@ label{
 .header{
     min-height: 89vh;
     width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgb(28, 15, 15)),url(../images/9584.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgb(12, 14, 45)),url(../images/2020-8-5-gettyimages-1214349956---seo.jpg);
     background-size: cover;
     background-position: center;
     margin-top: 8px;
@@ -279,7 +279,10 @@ nav .fa{
 .text-box h1{
     font-size: 62px;
     margin-top: 100px;
+
 }
+
+
 
 .hero-btn{
     display: inline-block;
@@ -311,7 +314,7 @@ nav .fa{
 .cta{
     margin: 100px auto;
     width: 80%;
-    background-color: #1c0f0f;
+    background-color: #091038;
     background-position: center;
     background-size: cover;
     border-radius: 10px;
@@ -343,13 +346,22 @@ nav .fa{
     width: 100%;
     text-align: center;
     padding: 30px 0;
-    background-color: #135422;
+    background-color: rgb(9, 4, 4);
+
 }
 
 .footer h4{
     margin-bottom: 25px;
     margin-top: 20px;
     font-weight: 600;
+    color: white;
+}
+
+.footer p{
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+    color: white;
 }
 
 

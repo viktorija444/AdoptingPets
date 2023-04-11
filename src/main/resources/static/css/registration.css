@@ -16,7 +16,7 @@ a, a:hover {
     align-items: center;
     justify-content: space-between;
     padding: 5px 15px;
-    background: #135422;
+    background: #1c0f0f;
 }
 
 .top-bar span{
@@ -126,10 +126,8 @@ label1{
 .header {
     min-height: 89vh;
     width: 100%;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(201, 176, 72) 23%, rgb(19, 84, 34) 94%), url(../images/slika-macke-22.jpg);;
     background-size: cover;
-    background-position: center;
+    background: #0c0e2d;
     margin-top: 8px;
 
 }

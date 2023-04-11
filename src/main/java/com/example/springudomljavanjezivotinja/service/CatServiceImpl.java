@@ -68,15 +68,16 @@ public class CatServiceImpl implements CatService {
         }
 
         catRepository.save(cats);
+
     }
 
 
     @Override
     // za svaki getByID proveriti da li Optional postoji ukoliko postoji vratiti .get ukoliko ne postoji baciti CustomException
     public Cat get(Long id) throws WrongIDException {
-        Optional<Cat> zivotinjaOptional = catRepository.findById(id);
-        if (zivotinjaOptional.isPresent()) {
-           return zivotinjaOptional.get();
+        Optional<Cat> catOptional = catRepository.findById(id);
+        if (catOptional.isPresent()) {
+           return catOptional.get();
         }
             throw new WrongIDException("ID doesnt exist");
     }
@@ -97,9 +98,9 @@ public class CatServiceImpl implements CatService {
         }
         existingCat.setId(id);
         existingCat.setPetName(cats.getPetName());
-        existingCat.setTypeOfPet(cats.getTypeOfPet());
         existingCat.setDescription(cats.getDescription());
         existingCat.setDateOfBirth(cats.getDateOfBirth());
+
         return catRepository.save(existingCat);
     }
 

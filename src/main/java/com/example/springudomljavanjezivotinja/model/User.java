@@ -42,11 +42,11 @@ public class User implements UserDetails {
     private String email;
 
     @Column(name = "phoneNumber", unique = true)
-    @Length(min = 10, message = "Password should be atleast 10 number long")
+    @Length(min = 9, message = "Phone Number should be at least 9 number long")
     private String phoneNumber;
 
     @NotNull(message = "Password cannot be empty")
-    @Length(min= 7, message = "")
+    @Length(min= 7, message = "Password should contain at least 7 characters")
     private String password;
 
     @Enumerated(EnumType.STRING)
