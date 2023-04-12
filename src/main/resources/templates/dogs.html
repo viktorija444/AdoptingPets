@@ -80,7 +80,7 @@
     <div class="title">
         <h1>Dogs</h1>
 
-        <p sec:authorize="hasRole('ROLE_ANONYMOUS')">Login so You Can Get Your Pet!</p>
+        <p sec:authorize="hasRole('ROLE_ANONYMOUS')">Login so you can get your Pet!</p>
         <div sec:authorize="isAuthenticated()">
             <a href="add_dog"  class="hero-btn">Add New Dog</a>
         </div>
