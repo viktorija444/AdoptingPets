@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" >
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" th:href="@{/css/contact.css}" />
@@ -13,13 +14,16 @@
 
 
     <ul>
-        <li><a href="#">
+        <li><a sec:authorize="isAuthenticated()"> <span sec:authentication="authorities"></span></a></li>
+        <li><a sec:authorize="isAuthenticated()"> <span sec:authentication="name"></span></a></li>
+        <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Log Out</a></li>
+        <li><a href="https://www.facebook.com">
             <ion-icon name="logo-facebook"></ion-icon>
         </a></li>
-        <li><a href="#">
+        <li><a href="https://www.instagram.com">
             <ion-icon name="logo-instagram"></ion-icon>
         </a></li>
-        <li><a href="#">
+        <li><a href="https://www.twitter.com">
             <ion-icon name="logo-twitter"></ion-icon>
         </a></li>
     </ul>
@@ -49,9 +53,10 @@
                 </li>
                 <li><a href="about_us">About Us</a></li>
                 <li><a href="">Contact</a></li>
+                <div sec:authorize="hasRole('ROLE_ANONYMOUS')">
                 <li><a href="login">Login</a></li>
                 <li><a href="registration">Registration</a></li>
-
+                </div>
 
 
             </ul>
@@ -82,7 +87,7 @@
                 <ion-icon name="mail"></ion-icon>
                 <div class="topic">Email</div>
                 <div class="text-one">udomljavanjezivotinja1@gmail.com</div>
-                <div class="text-two">informacijeudruzenja@gmail.com</div>
+
             </div>
         </div>
 

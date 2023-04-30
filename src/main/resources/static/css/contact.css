@@ -126,7 +126,7 @@ label{
 .header{
     min-height: 89vh;
     width: 100%;
-    background-color: #373d9d;
+    background-color: #152365;
     background-size: cover;
     background-position: center;
     margin-top: 8px;
@@ -139,7 +139,7 @@ label{
 .container{
     margin: 20px 40px 40px 40px; /* pozicija celog container-a */
     width: 85%;
-    background: #373d9d;
+    background: #152365;
     border-radius: 6px;
     padding: 20px 60px 30px 40px; /* velicina container-a*/
     /*box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); dodati ako hocemo senku oko container-a */

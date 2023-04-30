@@ -226,7 +226,7 @@ label{
 
 .column {
     flex: 33.33%;
-    padding: 67px;
+    padding: 57px;
 }
 .des{
     padding: 15px;
@@ -242,9 +242,32 @@ label{
 
 
 
-@media only screen and (max-width: 500px) {
-    .responsive {
-        width: 94%;
+@media (max-width: 700px) {
+
+    .gallery {
+        margin: 25.5px;
+        float: none;
+        width: 200px;
+        display: inline-grid;
+        color: white;
+    }
+    .gallery img{
+        width: 50%;
+        height: auto;
+    }
+
+    .row {
+        display: table-column-group;
+    }
+
+    .column {
+        flex: 33.33%;
+        padding: 23px;
+    }
+    .des{
+        padding: 13px;
+        text-align: center;
+        color: white;
     }
 }
 

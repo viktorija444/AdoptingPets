@@ -1,13 +1,47 @@
+
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>User Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        Adopting Pets
+    </title>
+
+    <link rel="stylesheet" th:href="@{/css/admin/dashboard.css}"  />
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js" rel="stylesheet"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
+
 <body>
+
+<div class="top-bar">
+    <span><ion-icon name="call"></ion-icon> 111-222-333 </span>
+
+
+    <ul>
+
+        <li><a href="https://www.facebook.com/"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a href="https://www.instagram.com/"><ion-icon name="logo-instagram"></ion-icon></a></li>
+        <li><a href="https://www.twitter.com/"><ion-icon name="logo-twitter"></ion-icon></a></li>
+    </ul>
+</div>
+
+
+<section class="header">
+    <nav>
+        <img th:src="@{/images/141-1415512_mfc-cat-logo-contrast-animal-welfare-drawing.png}" class="logo" />
+
+       </nav>
+
+    <div class="text-box">
 <h2>Dobrodosli u deo za admine!</h2>
 <p>Logged as: <span sec:authentication="name"></span></p>
 <p>Has role: <span sec:authentication="authorities"></span></p>
-<p><a th:href="@{/}">Index</a></p>
+<p><a th:href="@{/}">Welcome to site!</a></p>
 <p><a th:href="@{/logout}">Log out</a></p>
+    </div>
+</section>
+
 </body>
 </html>

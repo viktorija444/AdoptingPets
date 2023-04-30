@@ -262,11 +262,16 @@ a1 {
 
 @media (max-width: 700px) {
 
-    .container h1{
+
+    .container {
+        padding: 30px 130px; /* ovaj deo smanjuje container na velicinu na koju mi zelimo */
+    }
+
+    .container h1 {
         font-size: 20px;
     }
 
-    .container p{
+    .container p {
         font-size: 13px;
     }
 
