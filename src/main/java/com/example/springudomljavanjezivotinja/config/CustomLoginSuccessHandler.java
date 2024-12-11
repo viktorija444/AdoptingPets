@@ -20,7 +20,8 @@ public class CustomLoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
     protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
             throws IOException {
         String targetUrl = determineTargetUrl(authentication);
-        if(response.isCommitted()) return;
+        if(response.isCommitted())
+            return;
         RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
         redirectStrategy.sendRedirect(request, response, targetUrl);
     }
